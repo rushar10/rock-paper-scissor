@@ -1,0 +1,212 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(204, 204, 204);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.home {
+    width: 80%;
+    height: 100%;
+    background-color: rgb(255, 236, 236);
+}
+.hide-home {
+    display: none;
+
+}
+header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header h1 {
+    font-size: 40px;
+    margin-bottom: 1em;
+    background:linear-gradient(to right, #C00AED, #941180);;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#play-btn {
+    font-size: 15px;
+    padding: 1em;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color:  #9E0942;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 700ms ease-in-out;
+}
+
+#play-btn:hover {
+    background-color: #ff0062;
+}
+.choose {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    left: 10%;
+    right: 10%;
+    background-color: rgb(255, 236, 236);
+    animation: popload 1s forwards linear;
+
+}
+.choose-index {
+    z-index : 1;
+}
+.choose h1 {
+    padding: 0.5em;
+    text-align: center;
+    height: 10%;
+}
+section {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-column-gap: 1em;
+    grid-row-gap: 0.5em;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+.choice p {
+    text-align: center;
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+.choice > .img {
+    width: 20vw;
+    max-width: 200px;
+    object-fit: cover;
+    transition: transform 1s;
+    cursor: pointer;
+    box-shadow: 0 0 10px -2.5px;
+}
+.choice > .img:hover {
+    transform: scale(1.1);
+}
+#play {
+    position: absolute;
+    z-index: -2;
+    height: 100%;
+    right: 10%;
+    left: 10%;
+    background-color: white;
+
+}
+#play .images-chosen {
+    grid-template-columns: 1fr 1fr;
+}
+.player {
+    width: 20vw;
+    max-width: 200px;
+    transform: rotate(90deg) rotateY(180deg);
+    position: relative;
+    transition: left 3s;
+    transition-delay: 2s;
+}
+.enemy {
+    position: relative;
+    width: 20vw;
+    max-width: 200px;
+    transform: rotate(-90deg);
+    
+}
+.right {
+    animation: movingright 900ms linear forwards;
+}
+.left {
+   animation: movingleft 900ms linear forwards;
+}
+.out {
+    animation: movingdown 900ms linear 900ms forwards;
+}
+@keyframes movingright {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 30%;
+    }
+    100% {
+        left: 54%;
+    }
+}
+@keyframes movingleft {
+    0% {
+        right: 0;
+    }
+    50% {
+        right: 30%;
+    }
+    100% {
+        right: 54%;
+    }
+}
+
+@keyframes movingdown {
+    0% {
+        top: 0;
+        opacity: 1;
+    } 50% {
+        top: 25%;
+        opacity: 0.4;
+    } 100% {
+        top: 50%;
+        opacity: 0;
+    }
+}
+
+#pop-up {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(310, 100%, 76%, 0.767);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup > .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+.container p {
+    grid-column: 1 / span 2;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+}
+.container button {
+    font-size: 1em;
+    padding: 0.5em;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color:  #EE2D16;
+    color: rgb(253, 220, 220);;
+    cursor: pointer;
+}
